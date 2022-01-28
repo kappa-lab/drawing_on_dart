@@ -1,16 +1,5 @@
 # drawing_on_dart
 
-A new Flutter project.
+## drawing_animation
+![drawing_animation](https://raw.githubusercontent.com/kappa-lab/drawing_on_dart/develop/screenshot/draw_animation.png "drawing_animation")
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
