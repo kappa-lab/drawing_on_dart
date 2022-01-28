@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
 import 'draw_animation.dart';
+import 'draw_circle_2.dart';
 
 void main() => runApp(const MyApp());
 
@@ -16,9 +17,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         // home: const MyHomePage(),
-        home: const DrawAnimation()
-        // home: DrawCircle2()
-        );
+        // home: const DrawAnimation()
+        home: const DrawCircle2());
   }
 }
 
