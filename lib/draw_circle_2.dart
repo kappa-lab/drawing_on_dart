@@ -5,12 +5,10 @@ import 'dart:ui';
 import 'dart:math';
 
 class DrawCircle2 extends StatelessWidget {
-  const DrawCircle2({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor:  Color(0xFFEEEEEE),
+      // backgroundColor: new Color(0xFFEEEEEE),
       body: _Content(),
     );
   }
@@ -22,24 +20,24 @@ class _Content extends StatefulWidget {
 }
 
 class _ContentState extends State<_Content> with TickerProviderStateMixin {
-  late final AnimationController animCtl = AnimationController(
+  late AnimationController animCtl = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 4),
     debugLabel: 'anim',
   );
-
-  late final Animation<double> anim =
-      Tween(end: pi * 8.0, begin: 0.0).animate(curve)..addListener(_update);
-
-  late final CurvedAnimation curve =
+  late CurvedAnimation curve =
       CurvedAnimation(parent: animCtl, curve: Curves.linear);
 
-  int _tick = 0;
-  List<Particle> perticles = [];
-
+  late Animation<double> anim;
+  late int _tick;
+  late List<Particle> perticles;
   @override
   void initState() {
     super.initState();
+
+    anim = Tween(end: pi * 8.0, begin: 0.0).animate(curve)
+      ..addListener(_update);
+
     _reset();
   }
 
@@ -72,6 +70,8 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
   }
 
   Particle motion1(Particle pt) {
+    var vec = Point(
+        pt.vec.x + cos(anim.value) * .01, pt.vec.y + sin(anim.value) * .01);
     return Particle.move(pt.pos, pt.vec, sin(anim.value) * 10);
   }
 
@@ -97,12 +97,15 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
 }
 
 class _MyPainter extends CustomPainter {
+  late int tick;
   List<Particle> points;
   _MyPainter(this.points);
   @override
   void paint(Canvas canv, Size size) {
     _draw(canv, Particle.zero(), Colors.black);
-    points.forEach((f) => _draw(canv, f));
+    for (var f in points) {
+      _draw(canv, f);
+    }
   }
 
   void _draw(Canvas canv, Particle pt, [Color color = Colors.blue]) {
@@ -130,8 +133,7 @@ class Particle {
   Point vec;
   double velocity;
 
-  static final _r = Random();
-
+  static var r = Random();
   Particle(this.pos, this.vec, this.velocity);
 
   Particle.zero()
@@ -141,8 +143,8 @@ class Particle {
 
   Particle.random()
       : pos = const Point(0.0, 0.0),
-        vec = Point(_r.nextDouble() * 2.0 - 1.0, _r.nextDouble() * 2.0 - 1.0),
-        velocity = _r.nextDouble() * 2.0 + 4.0;
+        vec = Point(r.nextDouble() * 2.0 - 1.0, r.nextDouble() * 2.0 - 1.0),
+        velocity = r.nextDouble() * 2.0 + 4.0;
 
   Particle.move(this.pos, this.vec, this.velocity) {
     pos = Point(pos.x + (vec.x * velocity), pos.y + (vec.y * velocity));

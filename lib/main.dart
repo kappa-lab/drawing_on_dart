@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
       ),
       // home: const MyHomePage(),
       // home: const DrawAnimation()
-      home: DrawCircle1(),
-      // home: const DrawCircle2(),
+      // home: DrawCircle1(),
+      home: DrawCircle2(),
     );
   }
 }
