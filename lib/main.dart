@@ -1,3 +1,4 @@
+import 'package:drawing_on_dart/draw_circle_1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
@@ -12,13 +13,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        // home: const MyHomePage(),
-        // home: const DrawAnimation()
-        home: const DrawCircle2());
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      // home: const MyHomePage(),
+      // home: const DrawAnimation()
+      home: DrawCircle1(),
+      // home: const DrawCircle2(),
+    );
   }
 }
 
