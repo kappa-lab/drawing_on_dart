@@ -27,3 +27,13 @@
 ![draw_particle_1](https://raw.githubusercontent.com/kappa-lab/drawing_on_dart/develop/screenshot/draw_particle_1.png "draw_particle_1")
 
 
+## draw_path_particle
+### How To Run
+- VSCode 
+  - RUN AND DEBUG `draw_path_particle` 
+- Terminal
+  - `flutter run --target=lib/draw_path_particle.dart`
+
+![draw_path_particle](https://raw.githubusercontent.com/kappa-lab/drawing_on_dart/develop/screenshot/draw_path_particle.png "draw_path_particle")
+
+
