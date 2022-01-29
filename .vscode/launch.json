@@ -17,6 +17,12 @@
             "program": "${workspaceFolder}/lib/draw_path_particle.dart",
         },
         {
+            "name": "draw_particle_widget",
+            "request": "launch",
+            "type": "dart",
+            "program": "${workspaceFolder}/lib/draw_particle_widget.dart",
+        },
+        {
             "name": "main",
             "request": "launch",
             "type": "dart",
