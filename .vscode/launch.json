@@ -11,10 +11,10 @@
             "program": "${workspaceFolder}/lib/draw_particle_1.dart",
         },
         {
-            "name": "drawing_on_dart (profile mode)",
+            "name": "main",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
-        }
+            "program": "${workspaceFolder}/lib/main.dart",
+        },
     ]
 }

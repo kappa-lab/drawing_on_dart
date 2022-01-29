@@ -1,30 +1,29 @@
+// HOW TO RUN -> READEME.md
 import 'package:flutter/material.dart';
-import 'package:flutter/animation.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
 import 'dart:math';
 
-void main() => runApp(new MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
         title: 'Flutter Demo',
-        theme: new ThemeData(
+        theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        // home: new MyHomePage(title: 'Flutter Demo Home Page'),
-        // home: DrawAnimation()
-        // home: DrawCircle2()
-        home: DrawCircle3());
+        home: const DrawCircle3());
   }
 }
 
 class DrawCircle3 extends StatelessWidget {
+  const DrawCircle3({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new _Content();
+    return _Content();
   }
 }
 
@@ -53,20 +52,19 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
       painter.update(perticles, core);
     painter = _MyPainter(perticles, core);
     return Scaffold(
-      backgroundColor: Color.fromARGB(0, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(0, 255, 255, 255),
       appBar: AppBar(
-        title: Text('App Name'),
+        title: const Text('App Name'),
       ),
       body: Center(
           child: Center(
-              child: Container(
-                  child: CustomPaint(
+              child: CustomPaint(
         foregroundPainter: painter,
         willChange: true,
-      )))),
+      ))),
       floatingActionButton: FloatingActionButton(
         onPressed: _reset,
-        child: Icon(Icons.replay),
+        child: const Icon(Icons.replay),
       ),
     );
   }
@@ -149,21 +147,21 @@ class _MyPainter extends CustomPainter {
   void _drawGuid(Canvas canv) {
     const size = 400.0;
     var paint = Paint()
-      ..color = Color.fromARGB(255, 0xFF, 22, 22)
+      ..color = const Color.fromARGB(255, 0xFF, 22, 22)
       //..blendMode = BlendMode.multiply
       ..style = PaintingStyle.stroke;
 
-    canv.drawRect(Rect.fromLTWH(-size / 2, -size / 2, size, size), paint);
+    canv.drawRect(const Rect.fromLTWH(-size / 2, -size / 2, size, size), paint);
 
-    paint.color = Color.fromARGB(255, 0xAA, 0xAA, 0xAA);
+    paint.color = const Color.fromARGB(255, 0xAA, 0xAA, 0xAA);
     var step = 10;
     var l = size / step;
 
     for (var i = 0; i < l; i++) {
       if (i % 5 == 0) {
-        paint.color = Color.fromARGB(255, 0x00, 0x00, 0x00);
+        paint.color = const Color.fromARGB(255, 0x00, 0x00, 0x00);
       } else {
-        paint.color = Color.fromARGB(255, 0xAA, 0xAA, 0xAA);
+        paint.color = const Color.fromARGB(255, 0xAA, 0xAA, 0xAA);
       }
       canv.drawLine(Offset(-size / 2 + step * i, -size / 2),
           Offset(-size / 2 + step * i, size / 2), paint);
